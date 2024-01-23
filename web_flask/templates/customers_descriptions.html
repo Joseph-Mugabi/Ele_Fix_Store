@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <title>Single customer description Page</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../static/styles/descriptions.css" />
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <style>
+            #pt{
+      margin-bottom: 18px;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      font-size: 19px;
+      margin-left: 10px;
+    }
+    #single{
+    margin-left: -25px;
+    margin-bottom: 27px;
+    font-size: 18px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+   
+    #inc{
+    font-size: 17px;
+    margin-bottom: 30px;
+    margin-left: -13px;
+    color: gray;
+    }
+
+    #crip{
+        font-size: 25px;
+    font-weight: 700px;
+    margin-left: 10px;
+    margin-top: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    #action{
+        margin-left: 80%;
+        margin-top: -100px;
+    }
+
+    .des{
+      border-radius: 2px;
+      box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      background-color: rgb(231, 254, 240);
+    }
+
+    #health{
+      margin-left: -5px;
+    }
+    #p_id{
+      margin-left: -5px;
+    }
+
+    .card{
+        height: 65%;
+    }
+
+    .popup-content{
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        border-radius: 5px;
+        background-color: rgb(241, 254, 246);
+        background: linear-gradient(45deg, rgb(241, 254, 246), white);
+    }
+
+    #dos{
+        border-left: 1px solid green;
+    }
+
+        </style>
+        
+</head>
+
+<body>
+    <script type="module" src="../static/scripts/header.js"></script>
+
+    <my-header></my-header>
+
+    <section class="main2">
+        <h2><a class="bread_crumb" href="/" id="pt">Customers /</a></h2><h3><a class="bread_crumb" id="single" href="http://127.0.0.1:5000/single/{{ customer.id }}"> {{ customer.name }} /</a></h3><h4 id="inc">Descriptions</h4>
+        <button id="action">DISCARD</button>
+        
+        <!--<a id="save"><button class="btn1">SAVE</button></a>-->
+    </section>
+    <div class="line">
+        <button class="btn" id="send"><a>GENERATE INVOICE</a></button> 
+    </div>
+
+    <main class="main">
+        <section class="card">
+            <h3 id="crip">Descriptions</h3>
+
+            <section class="des">
+                <div class="left">
+                    Customer Name<br>
+                    <h7 id="space">Store</h7>
+                </div>
+                <div class="middle1">
+			 {{ customer.name }}
+		    <br>
+            <p id="store">Ele_Fix_Store</p>
+              
+                </div>
+                <div class="middle2">
+                    Technician<br>
+                    <h7 id="space">Description Id</h7><br>
+                </div>
+                <div class="right">
+                    {{ user.name }}<br>
+                    <p id="p_id">{{ description.id }}</p>
+                    <div id="calendarDropdown" class="dropdown-content"></div>
+		    
+                </div>
+            </section>
+
+            <section class="main3">
+                <h2>Description Lines</h2>
+                <a id="btn3" href="#" target="_blank"><button class="btn2" id="addButton">Add an item</button></a>
+
+                <!-- Card Popup HTML -->
+                <div id="cardPopup" class="hidden card-popup">
+                    <div class="popup-content">
+                        <h2 class="text-2xl mb-4">Create: New Description</h2>
+
+                        <div class="container">
+                            <div class="section-wrapper1">
+                                <section class="section">
+                                    <h3>Medicines</h3>
+                                    <h3>Start of treatment</h3>
+                                    <h3>Customer</h3>
+                                </section>
+                            
+                                <div class="vertical-line"></div>
+                            
+                                <section class="section">
+                                    <select id="items">
+                                        {% for item in items %}
+                                        <option id="item" value="{{ item.id }}"">{{ item.name }}</option>
+                                        {% endfor %}
+                                    </select><br>
+                                    <p>{{ customer.created_at }}</p>
+                                    <p >{{ customer.name }}</p>
+                                </section>
+                            </div>
+
+                        <div class="container" id="dos">
+                            <h2>Dosage</h2>
+                            <div class="section-wrapper1">
+                                <section class="section">
+                                    <h3>Dose</h3>
+                                    <h3>Frequency</h3>
+                                    
+                                </section>
+                            
+                                <div class="vertical-line"></div>
+                                <form class="section" id="yourFormId
+                                <input type="number" id="Frequency" placeholder="Frequency">
+                                <button id="save" type="submit" class="btn3">Save</button>
+                                </form>
+                            </div>
+                    </div>
+                </div>
+            </section>
+            <!--<h4>Description Records</h4>-->
+            <table id="medicines">
+              <thead>
+                <tr>
+                  <th>Medicines</th>
+                    <th>Dose</th>
+                  <th>Frequency</th>
+                  <th>Treatment duration</th>
+                  <th>Description_date</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for item in described_items %}
+                <tr>
+                  <td>{{ item.item_name }}</td>
+                    <td>{{ item.dosage }} mg/mL</td>
+                  <td>{{ item.frequency }} times</td>
+                  <td>{{ item.days }} days</td>
+                  <td>{{ item.created_at }}</td>
+                  <td><a class="delete-icon" href="#"><i class="fa fa-trash"></i></a></td>
+                </tr>
+                 {% endfor %}
+                </tbody>
+            </table>
+        </section>
+        <div id="flashMessage" class="flash-message"></div>
+    </main>
+</body>
+<script src="../static/scripts/customers_descriptions.js"></script>
+<script src="../static/scripts/descriptions.js"></script>
+<script src="../static/scripts/create_description_invoice.js"></script>
+</html>

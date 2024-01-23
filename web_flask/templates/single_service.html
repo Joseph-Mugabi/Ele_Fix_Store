@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <title>Single Service Management Page</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../static/styles/single_item.css" />
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <script type="module" src="../static/scripts/header.js"></script>
+
+    <my-header></my-header>
+    
+    <section class="main2">
+        
+        <h2><a class="bread_crumb">Service /</a></h2><h3>{{ service.name }}</h3>
+        <button id="action">Remove</button>
+        <a href="/edit_service/{{ service.id }}" id="edit"><button class="btn1">EDIT</button></a>
+    </section>
+    <section class="line">
+        <button class="btn">ITEM CARD</button> 
+    </section>
+    <main class="main">      
+        <section class="card">
+            <div class="left-side">
+                <img
+                    src="../static/images/item5.jpeg"
+                    alt="photo"
+                    class="left-side-img"
+                />
+            </div>
+                
+            <section class="right-side">
+                <h1 class="customer-name">{{ service.name }}</h1>
+                <div class="description">  
+                    <div class="info"><div class="dp" id="price">Price</div><div class="dp" id="item_price">{{ service.price }} Shs</div>
+                    <div class="dp" id="quantity">Summary</div><div class="dp" id="item_quantity">{{ service.description }}</div></div>
+                </div>
+            
+            </section>
+                    
+        </section>
+    </main>
+</body>
+<script type="text/javascript" src="../static/scripts/delete_service.js"></script>
+</html>

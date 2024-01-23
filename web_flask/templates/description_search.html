@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <title>Store Management Page</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../static/styles/customers_store.css" />
+</head>
+
+<body>
+    <script type="module" src="../static/scripts/header.js"></script>
+
+    <my-header></my-header>
+    
+    <section class="main2">
+        <h2>Store</h2>
+        <input  type="text" placeholder="Search..." id="search-query">
+        <a href="http://127.0.0.1:5000/create_item">
+            <button class="btn">Create</button>
+        </a>
+    </section>
+    
+    <main class="main">
+	{% for item in items %}
+        <section class="card">
+            <div class="left-side">
+                <img
+			src="../static/images/item5.jpeg"
+                    alt="photo"
+                    class="left-side-img2"
+                />
+            </div>
+                
+            <div class="right-side">
+                    
+                <p class="description">
+                    <h1 class="customer-holder"><a class="customer-name">{{ item.name }}</a></h1>
+		    <div class="info">
+			    Price: {{ item.price }} Shs<br>
+			    On hand: {{ item.quantity }} units
+		    </div>
+                </p>
+                <p id="item_id" style="font-size: 0px;">{{ item.id }}</p>
+                    
+            </div>
+        </section>
+	{% endfor %}
+            
+       
+    </main>
+</body>
+<script type="text/javascript" src="../static/scripts/search_descriptions.js"></script>
+<script type="text/javascript" src="../static/scripts/add_descriptions.js"></script>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Customer Registration Form</title>
+    <link rel="stylesheet" href="../static/styles/items_form.css" />
+    
+</head>
+<body>
+	<script type="module" src="../static/scripts/header.js"></script>
+
+    <my-header></my-header>
+    
+	<h2>Items Registration Form</h2>
+	<form id="myForm" method="post">
+		<fieldset>
+			
+			<label for="name">Name:</label>
+			<input type="text" id="name" name="name" value="{{ item.name }}"required><br><br>
+			<label for="price">Price:</label>
+			<input type="number" id="price" name="price" value="{{ item.price }}" required><br><br>
+			<label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" value="{{ item.quantity }}" required><br><br>
+		</fieldset>
+		
+		<button type="submit" value="Submit" id="btn">Submit</button> 
+	</form>
+</body>
+<script type="text/javascript" src="../static/scripts/edit_item.js"></script>
+</html>

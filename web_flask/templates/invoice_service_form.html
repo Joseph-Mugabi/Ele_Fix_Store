@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Customer Registration Form</title>
+    <link rel="stylesheet" href="../static/styles/items_form.css" />
+    
+</head>
+<body>
+	<header class="head">
+        <nav>
+            <img
+                src="https://assets.mockflow.com/app/wireframepro/company/C06cebf9edc514714a50cc24918f5b156/projects/MYQX0R3SPob/images/thumbnails/Me6d09e02eed3c78df2c2c0e04e0817c21678708408116"
+                alt="photo"
+                class="left-side-img3"
+            />
+            <h1 class="title">Ele_Fix_Store</h1>
+            <ul>
+                <li><a class="customers" href="/">Customers</a></li>
+                <li><a class="store" href="store">Store</a></li>
+                <li><a class="appointments" href="/appointments">Appointments</a></li>
+            </ul>
+        </nav>
+    </header>
+	<h2>Add Service</h2>
+	<form id="myForm" method="post">
+		<fieldset>
+			<select id="services">
+                {% for service in services %}
+                <option id="service" value="{{ service.id }}">{{ service.name }}</option>
+                {% endfor %}
+            </select><br>
+		</fieldset>		
+		<button type="submit" value="Submit" id="btn">Add</button> 
+	</form>
+</body>
+<script type="text/javascript" src="../static/scripts/add_invoice_service.js">
+
+</script>
+</html

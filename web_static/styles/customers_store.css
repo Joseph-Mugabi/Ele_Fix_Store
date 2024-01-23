@@ -1,0 +1,226 @@
+* {
+    padding: 5px;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 14px;
+    
+}
+body {
+  overflow: scroll;
+}
+.head {
+    background-color: hsl(140, 84%, 42%);
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 10%;
+    align-items: flex-start;
+    display: flex;
+    box-shadow:  2px 2px 10px #9c9a9a;
+}
+ul {
+    list-style: none; /* Removes bullet points */
+  }
+  
+  li {
+    display: inline-block; /* Displays list items inline */
+    margin-right: 10px; /* Adds a small space between each item */
+  }
+.main {
+    background-color: rgb(255, 254, 253);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    margin-left: 35px;
+}
+h2 {
+    align-items: flex-start;
+    justify-content: flex-start;
+    font-size: 28px;
+    margin: 0;
+    color: rgb(51, 51, 51);
+    text-align: left;
+    margin-left: 2%;
+}
+
+.main2 {
+    background-color: rgb(255, 255, 254);
+    height: 15vh;
+    width: 98%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-top: 70px;
+    align-items: center;
+    position: inherit;    
+}
+.card {
+    width: 30%;
+    height: 9rem;
+    background-color: rgb(252, 252, 252);
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+    box-sizing: border-box;
+    display: inline-block;
+    width: 30%;
+    margin: 10px;
+    vertical-align: top;
+    border: 2px solid rgb(226, 217, 217);
+    box-shadow:  2px 2px 10px #c2bfbf;
+}
+.left-side-img3 {
+    height: 45px;
+    width: 95px;
+    left: 0%;
+    align-items: center;
+    
+}
+
+.left-side {
+    height: 70%;
+    width: 50%;
+    object-fit: cover;
+    align-items: center;
+}
+.left-side-img {
+    height: 100%;
+    align-items: center;
+}
+
+.right-side {
+    height: 50%;
+    width: 50%;
+    top: 20px;
+    left: 30%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 2rem;
+    left: 20%;
+}
+.title {
+    height: 50%;
+    width: 50%;
+    top: 5px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 2rem;
+    left: 7%;
+    font-size: xx-large;
+    color: rgb(240, 248, 255);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.customers {
+    height: 15%;
+    width: 10%;
+    top: 23%;
+    left: 50%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 1rem;
+    color: rgb(245, 248, 250);
+    text-decoration: none;
+    font-size: 21.2px;
+    font-weight: bold;
+    font-family: 'Arial Narrow', Arial, sans-serif;
+}
+.store {
+    height: 15%;
+    width: 10%;
+    top: 23%;
+    left: 65%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 1rem;
+    color: rgb(245, 248, 250);
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Arial Narrow', Arial, sans-serif;
+}
+.appointments {
+    height: 15%;
+    width: 10%;
+    top: 23%;
+    left: 80%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 1rem;
+    color: rgb(245, 248, 250);
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Arial Narrow', Arial, sans-serif;
+}
+
+.customer-name {
+    font-family: Helvetica, sans-serif;
+    font-size: 16px;
+    text-transform: capitalize;
+    width: 15rem;
+}
+
+.info {
+    font-family: Helvetica, sans-serif;
+}
+.description {
+    font-family: Helvetica, sans-serif;
+    font-size: 10rem;
+    line-height: 1.5rem;
+    color: hsl(0, 4%, 58%);
+}
+
+.btn {
+    padding: 0.75rem 2rem;
+    border: none;
+    background-color: hsl(120, 64%, 35%);
+    border-radius: 0.5rem;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    color: hsl(0, 0%, 100%);
+    cursor: pointer;
+    
+}
+
+.btn:hover {
+    background-color: hsl(152, 10%, 74%);
+}
+
+input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 300px;
+    font-size: 16px;
+    margin-left: 50%;
+  }
+
+
+@media screen and (max-width: 768px) {
+    .card {
+      width: 45%;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .card {
+      width: 100%;
+    }
+  }

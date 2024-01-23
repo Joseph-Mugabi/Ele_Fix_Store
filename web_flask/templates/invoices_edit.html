@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <title>Customer Invoices</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../static/styles/descriptions.css" />
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        
+</head>
+
+<body>
+    <header class="head">
+        <nav>
+            <img
+                src="https://assets.mockflow.com/app/wireframepro/company/C06cebf9edc514714a50cc24918f5b156/projects/MYQX0R3SPob/images/thumbnails/Me6d09e02eed3c78df2c2c0e04e0817c21678708408116"
+                alt="photo"
+                class="left-side-img3"
+            />
+            <h1 ><a class="title" href="/">Ele_Fix_Store</a></h1>
+            <ul>
+                <li><a class="customers" href="/">Customers</a></li>
+                <li><a class="store" href="http://127.0.0.1:5000/store">Store</a></li>
+
+                <li><a class="appointments" href="/appointments">Appointments</a></li>
+      
+            </ul>
+        </nav>
+    </header>
+
+    <section class="main2">
+        <h2><a class="bread_crumb" href="/">Customers /</a></h2><h3><a class="bread_crumb" href="http://127.0.0.1:5000/single/{{ customer.id }}">{{ customer.name }} /</a></h3><h4>Invoice</h4>
+        <button id="action">DISCARD</button>
+        
+        <a href="" id="edit"><button class="btn1">SAVE</button></a>
+    </section>
+    <div class="line">
+        <a href="http://127.0.0.1:5000/create_payment/{{ customer.id }}/{{ invoice.id }}"><button class="btn" id="payment" >MAKE PAYMENT</button></a>
+    </div>
+
+    <main class="main">
+        <section class="card">
+            <h3>Invoice</h3>
+
+            <section class="des">
+                <div class="left">
+                    Related Customer<br>
+                    <h7 id="space">Payment Method</h7>
+                </div>
+                <div class="middle1">
+			{{ customer.name }}
+		    <br>
+            <p>Cash</p>
+              
+                </div>
+                <div class="middle2">
+                    Salesperson<br>
+                    <h7 id="space">Invoice Date</h7><br>
+                    Invoice_id<br>
+                </div>
+                <div class="right">
+                    {{ user.name }}<br>
+                    {{ invoice.created_at}}<br>
+                    {{ invoice.id }}
+            </section>
+
+            <section class="main2">
+                <h2>Invoice Lines</h2>
+                <a id="btn3" href="#" target="_blank"><button class="btn2" id="addButton">Add an item</button></a>
+
+                <!-- Card Popup HTML -->
+                <div id="cardPopup" class="hidden card-popup">
+                    <div class="popup-content">
+                        <h2 class="text-2xl mb-4">Add To Invoice</h2>
+
+                        <!--<div class="container">
+                            <div class="section-wrapper1">
+                                <section class="section">
+                                    <h3>Medicines</h3>
+                                    <h3>Deliverable</h3>
+                                    <h3>Price</h3>
+                                </section>
+                            
+                                <div class="vertical-line"></div>
+                            
+                                <section class="section">
+                                    <select id="items">
+                                        {% for item in items %}
+                                        <option id="item" value="{{ item.id }}"">{{ item.name }}</option>
+                                        {% endfor %}
+                                    </select><br>
+                                    <p>{{ customer.created_at }}</p>
+                                    <p >{{ customer.name }}</p>
+                                </section>
+                            </div>-->
+
+                        <hr class="section-divider">
+
+                        <div class="container">
+                            <div class="section-wrapper1">
+                                <section class="section">
+                                    <h3>Service</h3>
+                                    <h3>Price</h3>
+                                </section>
+                            
+                                <div class="vertical-line"></div>
+                            
+                                <section class="section">
+                                <input type="text" id="Service" placeholder="Service">
+                                <input type="number" id="Price" placeholder="Price">
+                                </section>
+                            </div>
+                    </div>
+                </div>
+            </section>
+            <!--<h4>Prescription Records</h4>-->
+            <table>
+              <thead>
+                <tr>
+                  <th>Product</th>
+                  <th>Quantity</th>
+                  <th>unit price</th>
+                  <th>Amount</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for item in described_items %}
+                <tr>
+                  <td>{{ item.item_name }}</td>
+                  <td>{{ item.quantity }} units</td>
+                  <td>{{ item.price }} shs</td>
+                  <td>{{ item.pay }} shs</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+            <section>
+                <div class="totals">
+                    Total: {{ total_amount }} shs<br>
+                    Amount Due:  {{ invoice.amount_due }} shs
+                </div>
+            </section>
+        </section>
+    </main>
+</body>
+
+<script src="../static/scripts/descriptions.js"></script>
+</html>

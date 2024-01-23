@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/styles/single_patient.css" />
+    <link rel="stylesheet" href="../static/styles/chat.css" />
+</head>
+<body>
+    <script type="module" src="/static/scripts/header.js"></script>
+
+    <my-header></my-header>
+    <div class="col1">
+            <div class="inner">
+                <div class="top">
+                    <div class="profile-contents">
+                    <div class="profilecol1">
+                        <img src="./images/arrow.svg" alt="" class="arrow">
+                        <img src="./images/avatar.jpg" alt="" class="profileimg">
+                        <div class="profile-info">
+                        <h2>{{ user.name }}</h2>
+                        <span>Ele_Fix_Store</span>
+                        </div>
+                        
+                    </div>
+                    <img src="./images/threedots.svg" class="menudots" alt="">
+                    </div>
+                </div>
+                <div id="contain">
+                
+            </div>
+            
+        
+                <div class="inputfield">
+                <input class="message" id="payload" type="text" placeholder="Type a message...">
+                <button class="submit" id="send" type="submit">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12.1717 12.0005L9.34326 9.17203L10.7575 7.75781L15.0001 12.0005L10.7575 16.2431L9.34326 14.8289L12.1717 12.0005Z"></path></svg>
+                </button>
+                </div>
+            </div>
+    </div>
+    <img src="../static/images/illustration-working.svg" id="illus" alt="Image description">
+</body>
+<script>
+      // Get DOM elements
+      const messageInput = document.getElementById('payload');
+    const submitButton = document.getElementById('send');
+    const chatContainer = document.getElementById('contain');
+    const comein = document.getElementById("out");
+
+    // Add event listener to submit button
+    submitButton.addEventListener('click', function() {
+        sendMessage();
+    });
+
+    // Add event listener to message input field for "Enter" key press
+    messageInput.addEventListener('keypress', function(event) {
+        if (event.key === 'Enter') {
+            sendMessage();
+        }
+    });
+
+    // Function to send a message
+    function sendMessage() {
+        const message = messageInput.value;
+        if (message.trim() === '') {
+            return;
+        }
+
+        // Clear input field
+        messageInput.value = '';
+
+        // Create and append a new outgoing message to the chat container
+        const outgoingMessage = createMessageElement('incoming', message);
+        chatContainer.appendChild(outgoingMessage);
+
+        // Scroll to the bottom of the chat container
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+
+        // Call the API to get a response and append it as an incoming message
+        callChatAPI(message);
+    }
+
+    // Function to create a message element
+    function createMessageElement(className, content) {
+        const messageElement = document.createElement('div');
+        messageElement.classList.add(className);
+        messageElement.innerHTML = `<p>${content}</p>`;
+        return messageElement;
+    }
+
+    function callChatAPI(message) {
+        // Make a POST request to the internal endpoint which connects to the actual API
+        fetch('http://127.0.0.1:5001/api/v1/chat', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ "message": message })
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Extract the response from the API
+            const response = data;
+            console.log(response);
+
+            // Create and append a new incoming message to the chat container
+            const incomingMessage = createMessageElement('outgoing', response);
+            chatContainer.appendChild(incomingMessage);
+
+            // Scroll to the bottom of the chat container
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        })
+        .catch(error => {
+            console.log(error);
+        });
+
+        /*// Simulate a delay for demonstration purposes
+        setTimeout(function() {
+            // Create and append a new incoming message to the chat container
+            const incomingMessage = createMessageElement('outgoing', 'API response');
+            chatContainer.appendChild(incomingMessage);
+
+            // Scroll to the bottom of the chat container
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }, 1000);*/
+    }
+
+        
+</script>
+
+</html>

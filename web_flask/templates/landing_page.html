@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ele_Fix_Store</title>
+    <link rel="stylesheet" href="../static/styles/landing_page.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.17/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="navbar bg-white text-white">
+        <div class="container mx-auto flex items-center justify-between py-4">
+            <a class="logo text-2xl font-bold" href="#">Ele_Fix<span class="font-light">Store_Solutions</span></a>
+
+            <img id="mobile-cta" class="mobile-menu" src="../static/images/menu.svg" alt="Open Navigation">
+
+            <nav class="hidden md:block">
+                <img id="mobile-exit" class="mobile-menu-exit" src="../static/images/exit.svg" alt="Close Navigation">
+                
+                <ul class="primary-nav flex space-x-4">
+                    <li class="current"><a href="#" class="hover:text-green-300">Home</a></li>
+                    <li><a href="#features" class="hover:text-green-300">Features</a></li>
+                    <li><a href="#about" class="hover:text-green-300">About Us</a></li>
+                </ul>
+
+                <ul class="secondary-nav flex space-x-4">
+                    <li><a href="#testimonials" class="hover:text-green-300">Testimonials</a></li>
+                    <li class="go-premium-cta"><a href="./login" class="bg-white text-green-300 px-4 py-2 rounded hover:bg-green-300 hover:text-white">Get Started</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <section class="hero bg-gray-100">
+        <div class="container mx-auto flex items-center justify-between py-8 -mt-16">
+            <div class="left-col w-2/3">
+                <p class="subhead text-blue-500">It's Simple &amp; Easy</p>
+                <h1 class="text-4xl font-bold mb-4">Empowering Electronics and Electrical providers with Innovative solution</h1>
+
+                <div class="hero-cta">
+                    <a href="./login" class="primary-cta bg-green-300 text-white px-6 py-3 rounded hover:bg-white hover:text-green-300">Try it Now</a>
+                    <a href="https://www.youtube.com/embed/2bzThHl4vl8" class="watch-video-cta ml-4 flex items-center text-green-300 hover:text-green-400">
+                        <img src="../static/images/watch.svg" alt="Watch a video" class="w-6 h-6 mr-2">Watch a video
+                    </a>
+                </div>
+            </div>
+
+            <img src="../static/images/Health Bridge lower1-01.png" class="hero-img w-1/2 h-1/2" alt="Illustration">
+        </div>
+    </section>
+
+    <section id="features" class="features-section py-12">
+        <div class="container mx-auto flex items-center justify-between">
+            <ul class="features-list flex flex-wrap space-y-4 md:space-y-0 md:space-x-4 text-white text-lg font-medium">
+                <li class="px-4 py-5 rounded">Customer Management</li>
+                <li class="px-4 py-5 rounded">Store</li>
+                <li class="px-4 py-5 rounded">Inventory Management</li>
+                <li class="px-4 py-5 rounded">Billing</li>
+                <li class="px-4 py-5 rounded">Descriptions</li>
+                <li class="px-4 py-5 rounded">EleFixStore</li>
+                <li class="px-4 py-5 rounded">Appointments</li>
+                <li class="px-4 py-5 rounded">Other awesome features</li>
+            </ul>
+
+            <img src="../static/images/holding-phone.jpg" alt="Man holding phone" class="w-2/3">
+        </div>
+    </section>
+
+    <section id="about" class="py-12">
+        <div class="container mx-auto flex flex-col md:flex-row">
+            <div class="md:w-1/2 md:mr-8">
+                <h2 class="text-3xl font-bold mb-4">About Us</h2>
+                <p class="text-lg text-gray-700 mb-4">Welcome to HealthBridge, the ultimate solution for hospital management. We are a team of passionate professionals who believe in using technology to revolutionize the healthcare industry. Our mission is to provide hospitals with the tools they need to streamline their operations, improve patient care, and ultimately save lives.</p>
+                <p class="text-lg text-gray-700 mb-4">Pregnancy is a challenging time for women, and there are many important aspects to manage. During the first visit to the hospital, pregnant women are typically given a book to keep track of their medical history. However, the need to bring this book to every appointment can be difficult, and forgetting or misplacing it can result in the loss of important medical information.</p>
+                <p class="text-lg text-gray-700 mb-4">This can have serious consequences, such as the administration of incorrect medication, which can harm both the mother and the baby. Therefore, it is crucial to have a reliable and accessible system for managing a pregnant woman's medical history that can be easily updated and accessed by healthcare providers.</p>
+                <p class="text-lg text-gray-700 mb-4">As someone who has witnessed the challenges faced by pregnant women in managing their medical histories, we were inspired to create a solution that would make it easier for them to keep track of their important medical information. Seeing the potential consequences of lost or misplaced medical records, we wanted to create a tool that could help alleviate some of the stress and risks associated with managing medical histories during pregnancy. Thus, the idea for our project was born.</p>
+                <p class="text-lg text-gray-700 mb-4">As a Portfolio Project for <a class="text-blue-500 hover:underline" href="https://www.alxafrica.com/software-engineering/" target="_blank">Holberton University</a>, we are proud to share our work and hope that it will inspire others to create meaningful tools that can improve the lives of those around them.</p>
+                <p class="text-lg text-gray-700 mb-4">Thank you for considering HealthBridge as your hospital management system. We look forward to helping you take your operations to the next level.</p>
+                <button class="primary-cta bg-green-300 text-white px-6 py-3 rounded hover:bg-white hover:text-green-300">READ MORE</button>
+            </div>
+            <div class="md:w-1/2">
+                <img id="abt" src="https://img.freepik.com/free-photo/happy-black-woman-with-afro-hairstyle-looks-positively-pregnancy-test_273609-18049.jpg?size=626&ext=jpg&ga=GA1.1.1024339321.1674713745&semt=ais" alt="Product Image" class="rounded-lg w-full h-auto">
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials-section bg-gray-100 py-25">
+        <div class="container mx-auto">
+            <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8" id="testimonialsList">
+                <li class="testimonial-item bg-green-300 p-8 rounded shadow">
+                    <img src="../static/images/melvin.jpeg" alt="Person" class="w-16 h-16 rounded-full mx-auto mb-4">
+
+                    <blockquote class="text-gray-700 text-lg">"Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore"</blockquote>
+                    <cite class="block text-gray-500 mt-2">- Ren Ree</cite>
+                </li>
+                <li class="testimonial-item bg-green-300 p-8 rounded shadow">
+                    <img src="../static/images/melvin.jpeg" alt="Person" class="w-16 h-16 rounded-full mx-auto mb-4">
+
+                    <blockquote class="text-gray-700 text-lg">"Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore"</blockquote>
+                    <cite class="block text-gray-500 mt-2">- Ren Ree</cite>
+                </li>
+                <li class="testimonial-item bg-green-300 p-8 rounded shadow">
+                    <img src="../static/images/melvin.jpeg" alt="Person" class="w-16 h-16 rounded-full mx-auto mb-4">
+
+                    <blockquote class="text-gray-700 text-lg">"Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore"</blockquote>
+                    <cite class="block text-gray-500 mt-2">- Ren Ree</cite>
+                </li>
+                <li class="testimonial-item bg-green-300 p-8 rounded shadow">
+                    <img src="../static/images/melvin.jpeg" alt="Person" class="w-16 h-16 rounded-full mx-auto mb-4">
+
+                    <blockquote class="text-gray-700 text-lg">"Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore"</blockquote>
+                    <cite class="block text-gray-500 mt-2">- Ren Ree</cite>
+                </li>
+                <li class="testimonial-item bg-green-300 p-8 rounded shadow">
+                    <img src="../static/images/melvin.jpeg" alt="Person" class="w-16 h-16 rounded-full mx-auto mb-4">
+
+                    <blockquote class="text-gray-700 text-lg">"Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore"</blockquote>
+                    <cite class="block text-gray-500 mt-2">- Ren Ree</cite>
+                </li>
+            </ul>
+            <div class="fle justify-between mt-4">
+                <button id="previousButton" class="float-left md:block bg-green-300 hover:bg-white hover:text-green-300 text-white font-bold py-2 px-4 rounded">Previous</button>
+                <button id="nextButton" class="float-right md:block bg-green-300 hover:bg-white hover:text-green-300 text-white font-bold py-2 px-4 rounded">Next</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section py-12">
+        <div class="container mx-auto flex">
+            <div class="contact-left w-1/2 pr-12">
+                <h2 class="text-2xl font-bold mb-4">Contact</h2>
+
+                <form action="">
+                    <label for="name" class="block text-gray-700">Name</label>
+                    <input type="text" id="name" name="name" class="w-full border border-gray-300 px-4 py-2 rounded mb-4">
+
+                    <label for="message" class="block text-gray-700">Message</label>
+                    <textarea name="message" id="message" cols="30" rows="10" class="w-full border border-gray-300 px-4 py-2 rounded mb-4"></textarea>
+
+                    <input type="submit" class="send-message-cta bg-green-300 text-white px-6 py-3 rounded hover:bg-white hover:text-green-300" value="Send message">
+                </form>
+            </div>
+            <div class="contact-right w-1/2">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31910.455229315023!2d36.77435696125029!3d-1.2901354254794104!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10d1c975ea27%3A0x58ce31d7cf06022c!2sSarova%20Panafric%20Nairobi%20-%20Hotel%20in%20Nairobi!5e0!3m2!1sen!2ske!4v1686585096644!5m2!1sen!2ske" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer bg-gray-800 text-white py-6">
+        <div class="container mx-auto flex items-center justify-between">
+            <p class="text-sm">&copy; 2023 HealthBridge. All rights reserved.</p>
+            <ul class="footer-nav flex space-x-4">
+                <li><a href="#" class="hover:text-green-300">Privacy Policy</a></li>
+                <li><a href="#" class="hover:text-green-300">Terms of Service</a></li>
+                <li><a href="#" class="hover:text-green-300">Contact Us</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+
+        const mobileBtn = document.getElementById('mobile-cta');
+        const nav = document.querySelector('nav');
+        const mobileBtnExit = document.getElementById('mobile-exit');
+
+        mobileBtn.addEventListener('click', () => {
+            nav.classList.add('menu-btn');
+        });
+
+        mobileBtnExit.addEventListener('click', () => {
+            nav.classList.remove('menu-btn');
+        });
+    </script>
+
+<script src="../static/scripts/landing.js"></script>
+
+</body>
+</html>

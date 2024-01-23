@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Customer Registration Form</title>
+    <link rel="stylesheet" href="./styles/customer_form.css" />
+    <script src="age.js"></script>
+</head>
+<body>
+	<header class="head">
+        <nav>
+            <img
+                src="https://assets.mockflow.com/app/wireframepro/company/C06cebf9edc514714a50cc24918f5b156/projects/MYQX0R3SPob/images/thumbnails/Me6d09e02eed3c78df2c2c0e04e0817c21678708408116"
+                alt="photo"
+                class="left-side-img3"
+            />
+            <h1 class="title">Ele_Fix_Store</h1>
+            <ul>
+                <li><a class="customers" href="#Customers">Customers</a></li>
+                <li><a class="store" href="#Store">Store</a></li>
+                <li><a class="appointments" href="#Appointments">Appointments</a></li>
+            </ul>
+        </nav>
+    </header>
+	<h2>Customer Registration Form</h2>
+	<form>
+		<fieldset>
+
+			<label for="name">Name:</label>
+			<input type="text" id="name" name="name" required><br><br>
+			<label for="dob">Date of Birth:</label>
+			<input type="date" id="dob" name="dob" required><br><br>
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" readonly><br><br>
+			<label for="gender">Gender:</label>
+			<select id="gender" name="gender" required>
+				<option value="">Select Gender</option>
+				<option value="male">Male</option>
+				<option value="female">Female</option>
+				<option value="other">Other</option>
+			</select><br><br>
+			<label for="address">Address:</label>
+			<textarea id="address" name="address" required></textarea><br><br>
+			<label for="phone">Contact:</label>
+			<input type="tel" id="phone" name="phone" required><br><br>
+			<label for="email">Email:</label>
+			<input type="email" id="email" name="email" required><br><br>
+		</fieldset>
+		<fieldset>
+			<label for="EleFixStore Solutions">Ele_Fix_Store Notes:</label>
+            <textarea id="notes" name="notes" required>Notes Here</textarea><br><br>
+		</fieldset>
+		
+		<input type="submit" value="Submit">
+	</form>
+</body>
+</html>

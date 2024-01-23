@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="../static/styles/single_customer.css" />
+    <meta charset="UTF-8">
+    <title>Procurement Details</title>
+    <style>
+      /* Table style */
+      table {
+        border-collapse: collapse;
+        margin: auto;
+        width: 100%;
+        font-size: 1.2em;
+        min-width: 1000px;
+        border-radius: 5px 5px 0 0;
+        overflow: hidden;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+      }
+      table thead tr {
+        background-color: #c3cac2;
+        color: #111010;
+        text-align: left;
+      }
+      table th,
+      table td {
+        padding: 12px 15px;
+      }
+      table tbody tr {
+        border-bottom: 1px solid #dddddd;
+      }
+      table tbody tr:nth-of-type(even) {
+        background-color: #f3f3f3;
+      }
+      table tbody tr:last-of-type {
+        border-bottom: 2px solid #27db3f;
+      }
+
+      /* Heading style */
+      h4 {
+        text-align: center;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        font-family: Arial, sans-serif;
+        font-size: 36px;
+        color: #20b140;
+      }
+
+      /* Body style */
+      body {
+        background-color: #f9f9f9;
+        font-family: Arial, sans-serif;
+      }
+
+      .btn2 {
+        margin-left: 15px;
+        margin-top: -5px;
+        background-color: #20b140;
+        border-radius: 5px;
+        color: white;
+        padding: 8px 20px;
+        border: none;
+        background-color: hsl(120, 64%, 35%);
+        font-family: "Montserrat", sans-serif;
+        font-weight: 200;
+      }
+
+      #btn4 {
+        display: inline-block;
+        margin-left: 40%;
+      }
+
+      h2 {
+        margin-left: -30%;
+        display: inline-block;
+      }
+
+      #loc {
+        text-decoration: none;
+        color: hsl(120, 64%, 35%);
+      }
+
+      .btn2:hover {
+        background-color: hsl(180, 7%, 97%);
+        color: rgb(5, 121, 5);
+        border: 2px solid rgb(5, 121, 5);
+      }
+    </style>
+</head>
+<body>
+    <header class="head">
+        <nav>
+            <img
+                src="https://assets.mockflow.com/app/wireframepro/company/C06cebf9edc514714a50cc24918f5b156/projects/MYQX0R3SPob/images/thumbnails/Me6d09e02eed3c78df2c2c0e04e0817c21678708408116"
+                alt="photo"
+                class="left-side-img3"
+            />
+            <h1 class="title">Ele_Fix_Store</h1>
+            <ul>
+                <li><a class="customers" href="/">Customers</a></li>
+                <li><a class="store" href="/store">Store</a></li>
+                <li><a class="appointments" href="#Appointments">Appointments</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="main2">
+        <h2>Procurement Details</h2>
+    </section>
+    <table>
+      <thead>
+          <tr>
+              <th>Vendor Name</th>
+              <th>Procurement ID</th>
+              <th>Created At</th>
+          </tr>
+      </thead>
+      <tbody>
+          {% set seen_procurement_ids = [] %}
+          {% for procurement in procurements %}
+              {% if procurement.procurement_id not in seen_procurement_ids %}
+                  <tr>
+                      <td>{{ procurement.vendor_name }}</td>
+                      <td>{{ procurement.procurement_id }}</td>
+                      <td>{{ procurement.created_at }}</td>
+                  </tr>
+                  {% set _ = seen_procurement_ids.append(procurement.procurement_id) %}
+              {% endif %}
+          {% endfor %}
+      </tbody>
+    </table>
+    <table>
+      <thead>
+          <tr>
+              <th>Item Name</th>
+              <th>Quantity</th>
+              <th>Price</th>
+          </tr>
+      </thead>
+      <tbody>
+          {% for procurement in procurements %}
+              <tr>
+                  <td>{{ procurement.name }}</td>
+                  <td>{{ procurement.quantity }}</td>
+                  <td>{{ procurement.price }}</td>
+              </tr>
+          {% endfor %}
+      </tbody>
+    </table>
+</body>
+</html>

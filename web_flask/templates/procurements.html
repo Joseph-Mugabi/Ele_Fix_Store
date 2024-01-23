@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="../static/styles/single_patient.css" />
+    <meta charset="UTF-8">
+    <title>Procurement List</title>
+    <style>
+      /* Table style */
+      table {
+        border-collapse: collapse;
+        margin: auto;
+        width: 100%;
+        font-size: 1.2em;
+        min-width: 1000px;
+        border-radius: 5px 5px 0 0;
+        overflow: hidden;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+      }
+      table thead tr {
+        background-color: #c3cac2;
+        color: #111010;
+        text-align: left;
+      }
+      table th,
+      table td {
+        padding: 12px 15px;
+      }
+      table tbody tr {
+        border-bottom: 1px solid #dddddd;
+      }
+      table tbody tr:nth-of-type(even) {
+        background-color: #f3f3f3;
+      }
+      table tbody tr:last-of-type {
+        border-bottom: 2px solid #27db3f;
+      }
+
+      /* Heading style */
+      h4 {
+        text-align: center;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        font-family: Arial, sans-serif;
+        font-size: 36px;
+        color: #20b140;
+      }
+
+      /* Body style */
+      body {
+        background-color: #f9f9f9;
+        font-family: Arial, sans-serif;
+      }
+      .delete-icon {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        background-image: url('https://assets.mockflow.com/app/wireframepro/svg/default/trash.svg');
+        background-size: cover;
+        cursor: pointer;
+      }
+
+      /* Custom styles */
+      .main2 {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
+      }
+
+      input[type="text"] {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        width: 500px;
+        font-size: 16px;
+        margin-left: 0%;
+        height: 35px;
+      }
+
+      .btn1 {
+        margin-top: -5px;
+      }
+
+      .btn2 {
+        margin-left: 15px;
+        margin-top: -5px;
+        background-color: #20b140;
+        border-radius: 5px;
+        color: white;
+        padding: 8px 20px;
+        border: none;
+        background-color: hsl(120, 64%, 35%);
+        font-family: "Montserrat", sans-serif;
+        font-weight: 200;
+      }
+
+      #btn3 {
+        display: inline-block;
+        margin-top: -40px;
+        margin-left: 80%;
+      }
+
+      #btn4 {
+        display: inline-block;
+        margin-left: 40%;
+      }
+
+      h2 {
+        margin-left: -30%;
+        display: inline-block;
+      }
+
+      #loc {
+        text-decoration: none;
+        color: hsl(120, 64%, 35%);
+      }
+
+      .btn2:hover {
+        background-color: hsl(180, 7%, 97%);
+        color: rgb(5, 121, 5);
+        border: 2px solid rgb(5, 121, 5);
+      }
+
+      .drugs {
+        display: none;
+        background-color: #f3f3f3;
+        padding: 10px;
+      }
+
+      .toggle-drugs {
+        cursor: pointer;
+        color: blue;
+      }
+      a {
+        text-decoration: none;
+        color: #27db3f;
+      }
+    </style>
+</head>
+<body>
+  <script type="module" src="../static/scripts/header.js"></script>
+
+  <my-header></my-header>
+    <section class="main2">
+        <h2>Procurements</h2>
+        <a id="btn4" href="/create_procurement"><button class="btn1">Create</button></a>
+    </section>
+    <table>
+      <thead>
+          <tr>
+              <th>Vendor Name</th>
+              <th>Procurement ID</th>
+              <th>Created At</th>
+          </tr>
+      </thead>
+      <tbody>
+          {% set seen_procurements = [] %}
+          {% for procurement in procurements %}
+              {% if procurement.procurement_id not in seen_procurements %}
+                  <tr>
+                      <td>{{ procurement.vendor_name }}</td>
+                      <td><a href="/procurements/{{ procurement.procurement_id }}">{{ procurement.procurement_id }}</a></td>
+                      <td>{{ procurement.created_at }}</td>
+                  </tr>
+                  {% set _ = seen_procurements.append(procurement.procurement_id) %}
+              {% endif %}
+          {% endfor %}
+      </tbody>
+    </table>
+</body>
+</html>

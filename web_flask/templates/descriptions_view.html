@@ -1,0 +1,137 @@
+<html>
+<head>
+    <link rel="stylesheet" href="../static/styles/single_customer.css" />
+    <meta charset="UTF-8">
+    <title>Desscription List</title>
+    <style>
+      /* Table style */
+      table {
+        border-collapse: collapse;
+        margin: auto;
+        width: 100%;
+        font-size: 1.2em;
+        min-width: 1000px;
+        border-radius: 5px 5px 0 0;
+        overflow: hidden;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+      }
+      table thead tr {
+        background-color: #c3cac2;
+        color: #111010;
+        text-align: left;
+      }
+      table th,
+      table td {
+        padding: 12px 15px;
+      }
+      table tbody tr {
+        border-bottom: 1px solid #dddddd;
+      }
+      table tbody tr:nth-of-type(even) {
+        background-color: #f3f3f3;
+      }
+      table tbody tr:last-of-type {
+        border-bottom: 2px solid #27db3f;
+      }
+
+      /* Heading style */
+      h4 {
+        text-align: center;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        font-family: Arial, sans-serif;
+        font-size: 36px;
+        color: #20b140;
+      }
+
+      /* Body style */
+      body {
+        background-color: #f9f9f9;
+        font-family: Arial, sans-serif;
+      }
+      .delete-icon {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        background-image: url('https://assets.mockflow.com/app/wireframepro/svg/default/trash.svg');
+        background-size: cover;
+        cursor: pointer;
+      }
+
+      #edit{
+       display: inline-block;
+       margin-top: 0px;
+       margin-left: 80%;
+      }
+
+      h3{
+        margin-top: 0px;
+      }
+
+      a{
+        text-decoration: none;
+      }
+      #pt{
+      margin-bottom: 29px;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      font-size: 19px;
+      margin-left: 10px;
+    }
+
+    #single{
+    margin-left: -25px;
+    margin-bottom: 27px;
+    font-size: 18px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+
+    #inc{
+    font-size: 17px;
+    margin-bottom: 37px;
+    margin-left: -13px;
+    color: gray;
+    }
+
+    #create{
+      border-top: -150px;
+    }
+    </style>
+  </head>
+<body>
+  <script type="module" src="../static/scripts/header.js"></script>
+
+  <my-header></my-header>
+    <section class="main2">
+        <h2><a class="bread_crumb" id="pt" href="/">Customers /</a></h2><h2><a class="bread_crumb" href="/single/{{ customer.id }}" id="single">{{ customer.name }} /</a></h2><h3 id="inc">Payments</h3>
+    </section>
+    <!--<h4>Desscription Records</h4>-->
+    <table>
+      <thead>
+        <tr>
+          <th>Payment Date</th>
+          <th>Name</th>
+          <th>Amount (Shs)</th>
+          <th>Paid (Shs)</th>
+          <th>Balance (Shs)</th>
+          <th>Transaction id</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for pay in customer_payments %}
+        <tr>
+          <td>{{ pay.created_at }}</td>
+          <td><a href="/edit_payment/{{ pay.id }}">{{ customer.name }}</a></td>
+          <td>{{ pay.total_amount }}</td>
+          <td>{{ pay.paid }} </td>
+          <td>{% set balance = pay.total_amount - pay.paid %} {{ balance }}</td>
+          <td class="transaction">{{ pay.id }}</td>
+          <td><a class="delete-icon" id="pay" href="#"><i class="fa fa-trash"></i></a></td>
+        </tr>
+        {% endfor %}
+        
+      </tbody>
+    </table>
+  </body>
+  <script type="text/javascript" src="../static/scripts/delete_payment.js"></script>
+</html>

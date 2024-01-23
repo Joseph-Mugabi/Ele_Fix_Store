@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <title>Customer Invoices</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../static/styles/invoice.css" />
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        
+</head>
+
+<body>
+    <script type="module" src="../static/scripts/header.js"></script>
+
+    <my-header></my-header>
+
+    <section class="main2">
+        <h2><a class="bread_crumb" id="pt" href="/">Customers /</a></h2><h3><a class="bread_crumb" id="single" href="http://127.0.0.1:5000/single/{{ customer.id }}">{{ customer.name }} /</a></h3><h4 id="inc">Invoice</h4>
+        <a href="http://127.0.0.1:5000/invoice_service/{{ invoice.id }}" id="edit"><button class="btn1">ADD SERVICE</button></a>
+    </section>
+    <div class="line">
+        <a href="http://127.0.0.1:5000/create_payment/{{ customer.id }}/{{ invoice.id }}"><button class="btn" id="payment" >MAKE PAYMENT</button></a>
+    </div>
+
+    <main class="main">
+        <section class="card">
+            <h3 id="inv">Invoice</h3>
+
+            <section class="des">
+                <div class="left">
+                    Related Customer<br>
+                    <h7 id="space">Payment Method</h7>
+                </div>
+                <div class="middle1">
+			{{ customer.name }}
+		    <br>
+            <p id="cash">Cash</p>
+              
+                </div>
+                <div class="middle2">
+                    Salesperson<br>
+                    <h7 id="space">Invoice Date</h7><br>
+                    Invoice_id<br>
+                </div>
+                <div class="right">
+                    {{ user.name }}<br>
+                    <span id="created">{{ invoice.created_at}}</span><br>
+                    {{ invoice.id }}
+            </section>
+
+            <section class="main3">
+                <h2>Invoice Lines</h2>
+            <!--<h4>Prescription Records</h4>-->
+            <table>
+              <thead>
+                <tr>
+                  <th>Product/Service</th>
+                  <th>Quantity</th>
+                  <th>unit price</th>
+                  <th>Amount</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for item in described_items %}
+                <tr>
+                  <td>{{ item.item_name }}</td>
+                  <td>{{ item.quantity }} units</td>
+                  <td>{{ item.price }} shs</td>
+                  <td>{{ item.pay }} shs</td>
+                </tr>
+                {% endfor %}
+                {% for service in services %}
+                <tr>
+                  <td>{{ service.name }}</td>
+                  <td>N/A</td>
+                  <td>{{ service.price }} shs</td>
+                  <td>N/A</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+            <section>
+                <div class="totals">
+                    <span id="amount">Total: {{ total_amount }} shs</span>
+                    Amount Due:  {{ invoice.amount_due }} shs
+                </div>
+            </section>
+        </section>
+    </main>
+</body>
+
+<script src="../static/scripts/descriptions.js"></script>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Procurement Registration Form</title>
+    <link rel="stylesheet" href="../static/styles/items_form.css" />
+    
+</head>
+<body>
+	<script type="module" src="../static/scripts/header.js"></script>
+
+    <my-header></my-header>
+    
+	<h2>Procurement Registration Form</h2>
+	<form id="myForm" method="post">
+		<fieldset>
+			<label for="vendorName">Vendor Name:</label>
+			<input type="text" id="vendorName" name="vendorName" required><br><br>
+			
+			<div id="itemContainer">
+				<div class="item-row">
+					<label for="itemName">Item Name:</label>
+					<input type="text" class="itemName" name="itemName" required>
+					<label for="quantity">Quantity:</label>
+					<input type="number" class="quantity" name="quantity" required>
+					<label for="price">Price:</label>
+					<input type="number" class="price" name="price" required>
+				</div>
+			</div>
+
+			<button type="button" id="addItemButton">Add Item</button>
+		</fieldset>
+		
+		<button type="submit" value="Submit" id="submitButton">Submit</button> 
+	</form>
+</body>
+<script type="text/javascript" src="../static/scripts/create_procurement.js"></script>
+</html>

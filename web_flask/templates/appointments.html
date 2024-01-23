@@ -1,0 +1,192 @@
+<html>
+<head>
+    <link rel="stylesheet" href="../static/styles/single_patient.css" />
+    <meta charset="UTF-8">
+    <title>Description List</title>
+    <style>
+      /* Table style */
+      table {
+        border-collapse: collapse;
+        margin: auto;
+        width: 100%;
+        font-size: 1.2em;
+        min-width: 1000px;
+        border-radius: 5px 5px 0 0;
+        overflow: hidden;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+      }
+      table thead tr {
+        background-color: #c3cac2;
+        color: #111010;
+        text-align: left;
+      }
+      table th,
+      table td {
+        padding: 12px 15px;
+      }
+      table tbody tr {
+        border-bottom: 1px solid #dddddd;
+      }
+      table tbody tr:nth-of-type(even) {
+        background-color: #f3f3f3;
+      }
+      table tbody tr:last-of-type {
+        border-bottom: 2px solid #27db3f;
+      }
+
+      /* Heading style */
+      h4 {
+        text-align: center;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        font-family: Arial, sans-serif;
+        font-size: 36px;
+        color: #20b140;
+      }
+
+      /* Body style */
+      body {
+        background-color: #f9f9f9;
+        font-family: Arial, sans-serif;
+      }
+      .delete-icon {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        background-image: url('https://assets.mockflow.com/app/wireframepro/svg/default/trash.svg');
+        background-size: cover;
+        cursor: pointer;
+      }
+
+      select {
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 1px 1px 3px #ddd;
+  background-color: #fff;
+  color: #555;
+  margin-bottom: -50px;
+  display: block;
+  width: 500px;
+}
+
+select:focus {
+  outline: none;
+  border-color: #4d90fe;
+  box-shadow: 1px 1px 3px #4d90fe;
+}
+
+option {
+  margin-right: 40%;
+  margin-top: 10px;
+  padding: 8px;
+  font-size: 16px;
+  background-color: #fff;
+  color: #555;
+}
+
+.main2{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 500px;
+    font-size: 16px;
+    margin-left: 0%;
+    height: 35px;
+   
+  }
+
+  .btn1{
+    margin-top: -5px;
+  }
+
+  .btn2{
+    margin-left: 15px;
+    margin-top: -5px;
+    background-color: #20b140;
+    border-radius: 5px;
+    color: white;
+    padding: 8px 20px;
+    border: none;
+    background-color: hsl(120, 64%, 35%);
+    font-family: "Montserrat", sans-serif;
+    font-weight: 200;
+  }
+
+  #btn3{
+    display: inline-block;
+    margin-top: -40px;
+    margin-left: 80%;
+  }
+
+  #btn4{
+    display: inline-block;
+    margin-left: 40%;
+  }
+
+  h2{
+    margin-left: -30%;
+    display: inline-block;
+  }
+
+  #loc{
+    text-decoration: none;
+    color: hsl(120, 64%, 35%);
+  }
+
+  .btn2:hover {
+    background-color: hsl(180, 7%, 97%);
+    color: rgb(5, 121, 5);
+    border: 2px solid rgb(5, 121, 5);
+
+}
+  
+    </style>
+  </head>
+<body>
+  <script type="module" src="/static/scripts/header.js"></script>
+
+  <my-header></my-header>
+  
+    <section class="main2">
+	    <h2>Appointments</h2>
+        <a id="btn4" href="https://calendly.com/healthbridge" target="_blank"><button class="btn1">ADD</button></a>
+        <a id="btn3" href="https://calendly.com/login" target="_blank"><button class="btn2">MANAGE APPOINTMENTS</button></a>
+    </section>
+    <!--<h4>Description Records</h4>-->
+    <table>
+      <thead>
+        <tr>
+          <th>Customer Name</th>
+          <th>Customer Email</th>
+	        <th>Meeting Type</th>
+          <th>Start Time</th>
+          <th>Meeting link</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for event in all_events %}
+        <tr>
+          <td>{{ event["user_name"] }}</td>
+          <td>{{ event["user_email"] }}</td>
+	  <td>{{ event["name"] }}</td>
+	  <td>{{ event["start_time"] }}</td>
+          <td><a id="loc" target="_blank" href="{{ event["location"] }}">Google Meet</a></td>
+          <td>{{ event["status"]}}</td>
+        </tr>
+        {% endfor %}
+        
+      </tbody>
+    </table>
+  </body>
+  <script type="text/javascript" src="../static/scripts/search_prescriptions.js"></script>
+  <script type="text/javascript" src="../static/scripts/delete_prescription.js"></script>
+</html>

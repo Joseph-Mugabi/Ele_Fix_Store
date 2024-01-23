@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <title>Customer Management Page</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./static/styles/customers_store.css" />
+        
+</head>
+<body>
+    <script type="module" src="../static/scripts/header.js"></script>
+
+    <my-header></my-header>
+     
+    <section class="main2">
+        <h2>Customers</h2>
+        <input type="text" placeholder="Search..." id="search-query">
+        <a href="http://127.0.0.1:5000/create_customer">
+            <button class="btn">Create</button>
+        </a>
+    </section>
+    
+    <main class="main">
+            {% for customer in customers %}
+            <section class="card">
+                <div class="left-side">
+                    <!--<img
+                        src="https://assets.mockflow.com/app/wireframepro/company/C06cebf9edc514714a50cc24918f5b156/projects/MYQX0R3SPob/images/thumbnails/M50cdc58de673aac14efd9695d1eca8f01677654781137"
+                        alt="photo"
+                        class="left-side-img"
+			/>-->
+		    <img
+			    src="../static/images/p1.jpeg"
+                        alt="photo"
+                        class="left-side-img"
+                        />
+		   
+                </div>
+                
+                <div class="right-side">
+                    
+                    <p class="description">
+		    <h1 class="customer-holder"><a class="customer-name" href="http://127.0.0.1:5000/single/{{ customer.id }}">{{ customer.name }}</a></h1>
+			<div class="info">			
+				{{ customer.gender }}<br>
+				{{ customer.age }} years<br>
+				{{ customer.address }}
+			</div>
+                    </p>
+                    
+                </div>
+            </section>
+	    {% endfor %}
+            
+           
+    </main>
+</body>
+<script type="text/javascript" src="../static/scripts/search.js"></script>
+</html>

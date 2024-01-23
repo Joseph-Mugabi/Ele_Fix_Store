@@ -1,0 +1,403 @@
+* {
+    padding: 5px;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 14px;
+    
+}
+body {
+  overflow: scroll;
+}
+.head {
+    background-color: hsl(140, 84%, 42%);
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 10%;
+    align-items: flex-start;
+    display: flex;
+    box-shadow:  2px 2px 10px #9c9a9a;
+}
+ul {
+    list-style: none; /* Removes bullet points */
+  }
+  
+  li {
+    display: inline-block; /* Displays list items inline */
+    margin-right: 10px; /* Adds a small space between each item */
+  }
+.main {
+    background-color: rgb(255, 254, 253);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    margin-left: 35px;
+}
+h2 {
+    align-items: flex-start;
+    justify-content: flex-start;
+    font-size: 25px;
+    margin: 0;
+    color: rgb(114, 113, 113);
+    text-align: left;
+    margin-left: 3%;
+}
+
+.main2 {
+    background-color: rgb(255, 255, 254);
+    height: 15vh;
+    width: 98%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-top: 70px;
+    align-items: center;
+    position: inherit;    
+}
+.card {
+    width: 30%;
+    height: 9rem;
+    background-color: rgb(252, 252, 252);
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+    box-sizing: border-box;
+    display: inline-block;
+    width: 30%;
+    margin: 10px;
+    vertical-align: top;
+    border: 2px solid rgb(226, 217, 217);
+    box-shadow:  2px 2px 10px #c2bfbf;
+}
+.left-side-img3 {
+    height: 38px;
+    width: 80px;
+    left: 0%;
+    align-items: center;
+    
+}
+
+.left-side {
+    height: 70%;
+    width: 50%;
+    object-fit: cover;
+    align-items: center;
+}
+.left-side-img {
+    height: 100%;
+    align-items: center;
+}
+
+.left-side-img2 {
+    height: 80px;
+    width: 85px;
+    margin-top: -10px;
+    
+}
+
+.right-side {
+    height: 50%;
+    width: 50%;
+    top: 20px;
+    left: 30%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 2rem;
+    left: 20%;
+}
+.title {
+    height: 50%;
+    width: 50%;
+    top: 5px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 2rem;
+    left: 5.5%;
+    font-size: 27px;
+    color: rgb(240, 248, 255);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-decoration: none;
+}
+.customers {
+    height: 15%;
+    width: 10%;
+    top: 23%;
+    left: 50%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 1rem;
+    color: rgb(245, 248, 250);
+    text-decoration: none;
+    font-size: 19px;
+    font-weight: bold;
+    font-family: 'Arial Narrow', Arial, sans-serif;
+}
+.store {
+    height: 15%;
+    width: 10%;
+    top: 23%;
+    left: 65%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 1rem;
+    color: rgb(245, 248, 250);
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Arial Narrow', Arial, sans-serif;
+}
+.appointments {
+    height: 15%;
+    width: 10%;
+    top: 23%;
+    left: 80%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 1rem;
+    color: rgb(245, 248, 250);
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Arial Narrow', Arial, sans-serif;
+}
+
+.customer-name {
+    font-family: Helvetica, sans-serif;
+    font-size: 16px;
+    text-decoration: none;
+    color: black;
+    text-align: left;
+    display: inline-block;
+    margin-left: -5px;
+    width: 200px;
+    margin-bottom: -5px;
+}
+
+.info {
+    font-family: Helvetica, sans-serif;
+}
+.description {
+    font-family: Helvetica, sans-serif;
+    font-size: 10rem;
+    line-height: 1.5rem;
+    color: hsl(0, 4%, 58%);
+}
+
+.btn {
+    padding: 0.75rem 2rem;
+    border: none;
+    background-color: hsl(120, 64%, 35%);
+    border-radius: 0.5rem;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    color: hsl(0, 0%, 100%);
+    cursor: pointer;
+    
+}
+
+.btn:hover {
+    background-color: hsl(0, 0%, 100%);
+    color:green;
+    border: 2px solid green
+
+}
+
+input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 500px;
+    font-size: 16px;
+    margin-left: 0%;
+    height: 35px;
+  }
+
+  .customer-holder{
+    width: 100px;
+  }
+
+  /* Styling for the user profile section */
+  .prof {
+    float: right;
+    position: absolute;
+    
+   }
+   .profile {
+    
+    margin-top: 0px;
+    position: absolute;
+    padding: 0px;
+    border: 1px solid #ccc;
+    max-width: 350px;
+    background-color: #fffefe;
+    border-radius: 5px;
+  }
+
+  .profile h2 {
+    text-align: center;
+    margin-bottom: 2px;
+    margin-top: -5px;
+    color: #20b140;
+  }
+
+  .profile label {
+    display: block;
+    margin-bottom: 2px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+  .profile input[type="text"] {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+  }
+
+  .profile span {
+    display: block;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 20px;
+  }
+
+
+  .profile button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+  }*/
+
+  /* Styling for the user photo */
+  .user-photo {
+    
+    cursor: pointer;
+    
+  }
+
+  /* Styling for the edit mode */
+  .edit-mode .profile span {
+    display: none;
+  }
+
+  .edit-mode .profile input[type="text"] {
+    display: block;
+    background-color: #f5f5f5;
+  }
+
+  .edit-mode .profile .edit-buttons {
+    display: block;
+  }
+
+  .edit-mode .profile .edit-buttons button {
+    display: inline-block;
+    margin-right: 10px;
+  }
+
+  .btn {
+  background-color: #20b140;
+  border-radius: 5px;
+  color: white;
+  padding: 8px 20px;
+  border: none;
+  background-color: hsl(120, 64%, 35%);
+  font-family: "Montserrat", sans-serif;
+  font-weight: 200;
+  }
+
+  .btn1 {
+  background-color: #fa0202;
+  border-radius: 5px;
+  color: white;
+  padding: 8px 20px;
+  border: none;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 200;
+  }
+
+  .btn:hover {
+  background-color: hsl(180, 7%, 97%);
+  color: rgb(5, 121, 5);
+  border: 2px solid rgb(5, 121, 5);
+  }
+
+  .btn1:hover {
+  background-color: hsl(180, 7%, 97%);
+  color: rgb(240, 10, 10);
+  border: 2px solid rgb(248, 6, 6);
+  }
+
+
+@media screen and (max-width: 768px) {
+    .card {
+      width: 45%;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .card {
+      width: 100%;
+    }
+  }
+
+  
+/* Media query for small screens */
+@media only screen and (max-width: 767px) {
+  .title {
+    font-size: 20px;
+  }
+
+  .left-side-img3 {
+    width: 50px;
+    height: 30px;
+  }
+
+  .customers, .store, .appointments {
+    margin-left: -30px;
+  }
+
+  .user-photo {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+/* Media query for extra small screens */
+@media only screen and (max-width: 479px) {
+  .left-side-img3 {
+    height: 40px;
+  }
+
+  .title {
+    font-size: 16px;
+  }
+
+  .user-photo {
+    width: 24px;
+    height: 24px;
+  }
+
+  .customers, .store, .appointments {
+    font-size: 20px;
+    margin-left: -30px;
+  }
+}

@@ -1,0 +1,168 @@
+<html>
+<head>
+    <link rel="stylesheet" href="../static/styles/single_customer.css" />
+    <meta charset="UTF-8">
+    <title>Description List</title>
+    <style>
+      /* Table style */
+      table {
+        border-collapse: collapse;
+        margin: auto;
+        width: 100%;
+        font-size: 1.2em;
+        min-width: 1000px;
+        border-radius: 5px 5px 0 0;
+        overflow: hidden;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+      }
+      table thead tr {
+        background-color: #c3cac2;
+        color: #111010;
+        text-align: left;
+      }
+      table th,
+      table td {
+        padding: 12px 15px;
+      }
+      table tbody tr {
+        border-bottom: 1px solid #dddddd;
+      }
+      table tbody tr:nth-of-type(even) {
+        background-color: #f3f3f3;
+      }
+      table tbody tr:last-of-type {
+        border-bottom: 2px solid #27db3f;
+      }
+
+      /* Heading style */
+      h4 {
+        text-align: center;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        font-family: Arial, sans-serif;
+        font-size: 36px;
+        color: #20b140;
+      }
+
+      /* Body style */
+      body {
+        background-color: #f9f9f9;
+        font-family: Arial, sans-serif;
+      }
+      .delete-icon {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        background-image: url('https://assets.mockflow.com/app/wireframepro/svg/default/trash.svg');
+        background-size: cover;
+        cursor: pointer;
+      }
+
+      #edit{
+       display: inline-block;
+       margin-top: 0px;
+       margin-left: 80%;
+      }
+
+      h3{
+        margin-top: 0px;
+      }
+
+      a{
+        text-decoration: none;
+      }
+
+      #pt{
+      margin-bottom: 10px;
+      font-size: 18px;
+      margin-left: 10px;
+    }
+    #single{
+    margin-left: -25px;
+    margin-bottom: 10px;
+    font-size: 17px;
+    }
+    #inc{
+    font-size: 17px;
+    margin-bottom: 25px;
+    margin-left: -13px;
+    color: gray;
+    }
+
+    .btn1 {
+    padding: 8px 20px;
+    border: none;
+    background-color: hsl(120, 64%, 35%);
+    border-radius: 5px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 200;
+    color: hsl(0, 0%, 100%);
+    cursor: pointer;
+    margin-left: 50%;
+    margin-top: -45px;
+    font-size: 12px;
+    width: 100px;
+    
+}
+
+.btn1:hover {
+    background-color: hsl(180, 7%, 97%);
+    color: rgb(5, 121, 5);
+    border: 2px solid rgb(5, 121, 5);
+
+}
+
+#create{
+  display: inline-block;
+       margin-top: -30px;
+       margin-left: 80%;
+       color: white;
+       padding: 10px 10px;
+}  
+    </style>
+  </head>
+<body>
+  <script type="module" src="../static/scripts/header.js"></script>
+
+  <my-header></my-header>
+  
+    <section class="main2">
+        
+
+        <h2><a class="bread_crumb" id="pt" href="/">Customers /</a></h2><h2><a class="bread_crumb" id="single" href="/single/{{ customer.id }}">{{ customer.name }} /</a></h2><h3 id="inc">Invoices</h3>    
+        <a id="create"><button class="btn1">CREATE</button></a>
+    </section>
+    <!--<h4>Description Records</h4>-->
+    <table>
+      <thead>
+        <tr>
+          <th>Invoice Date</th>
+          <th>Customer Name</th>
+          <th>Invoice id</th>
+          <th>Total</th>
+          <th>Paid</th>
+          <th>Amount Due</th>
+          <th>Status</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for invoice in invoices %}
+        <tr>
+          <td>{{ invoice.created_at }}</td>
+          <td><a href="http://127.0.0.1:5000//single_invoice/{{ invoice.id }}">{{ customer.name }}</a></td>
+          <td class="transaction">{{ invoice.id }}</td>
+          <td>{{ invoice.total_amount }} shs</td>
+          <td>{{ invoice.paid }} shs</td>
+          <td>{% set balance = invoice.total_amount - invoice.paid %} {{ balance }} shs</td>
+          <td>{{ invoice.status }}</td>
+          
+          <td><a class="delete-icon" id="pay" href="#"><i class="fa fa-trash"></i></a></td>
+        </tr>
+        {% endfor %}
+        
+      </tbody>
+    </table>
+  </body>
+  <script type="text/javascript" src="../static/scripts/delete_payment.js"></script>
+</html>

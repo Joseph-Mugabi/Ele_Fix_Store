@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <title>Single customer Management Page</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../static/styles/single_customer.css" />
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <style>
+            #invoice{
+                margin-top: -40px;
+                margin-left: 90%;
+            }
+
+            #payment{
+                margin-top: 3px;
+            }
+        </style>
+        
+</head>
+
+<body>
+    <script type="module" src="../static/scripts/header.js"></script>
+
+    <my-header></my-header>
+    
+    <section class="main2">
+        <h2><a class="bread_crumb" href="/">Customers /</a></h2><h3>{{ customer.name }}</h3>
+        <button id="action">Delete</button>
+        
+        <a href="http://127.0.0.1:5000/edit_customer/{{ customer.id }}" id="edit"><button class="btn1">EDIT</button></a>
+    </section>
+    <div class="line">
+        <button class="btn">CUSTOMER CARD</button> 
+    </div>
+    <main class="main">      
+        <section class="card">
+            <div class="left-side">
+                <img
+			src="{{ chosen }}"
+                    alt="photo"
+                    class="left-side-img"
+                />
+            </div>
+            <section class="right-side">
+                   
+                <div class="description">
+			        <h1 class="customer-name">{{ customer.name }}</h1>
+                    <div class="info" id="pt">{{ customer.id }}</div>
+                </div>
+                <section>
+                    <a class="descriptions" href="/descriptions/{{ customer.id }}">
+                        <img class="img" src="https://assets.mockflow.com/app/wireframepro/svg/default/menu.svg" alt="Image description">
+                        <span>Descriptions</span>
+                    </a>
+
+                    <a class="descriptions" id="invoice" href="/invoices/{{ customer.id }}">
+                        <img class="img" id="burger" src="https://assets.mockflow.com/app/wireframepro/svg/default/menu.svg" alt="Image description">
+                        <span id="inv">Invoices</span>
+                    </a>
+
+                    <a class="payments" id="payment" href="/all_payments/{{ customer.id }}">
+                        <img class="img" src="https://assets.mockflow.com/app/wireframepro/svg/default/down.svg" alt="Image description">
+                        <span>Payments</span>
+                    </a><br>
+                </section>
+            </section>
+            
+            <section class="des">
+                <div class="left">
+                    Customer Age<br>
+                    <h7 id="space">Gender</h7>
+                </div>
+                <div class="middle1">
+			{{ customer.age }}
+		    <br><h7 id="space">{{ customer.gender }}</h7>
+                </div>
+                <div class="middle2">
+                    Address<br>
+                    <h7 id="space">Contact</h7><br>
+                    Email
+                </div>
+                <div class="right">
+                    {{ customer.address }}<br>
+		    <h7 id="space">{{ customer.contact }}</h7><br>
+		    {{ customer.email }}
+                </div>
+            </section>
+            <section>
+                <h6>Ele_Fix_Store Notes</h6>
+                <div class="card1">
+                    <div class="notes" style="margin: 0; padding: 0;">
+                        {{ customer.Ele_Fix_Store_notes|trim }}
+                    </div>
+                </div>
+            </section>
+        </section>
+    </main>
+</body>
+<script type="text/javascript" src="../static/scripts/delete_customer.js"></script>
+</html>

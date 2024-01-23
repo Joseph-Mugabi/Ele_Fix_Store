@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <title>Store Management Page</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./static/styles/customers_store.css" />
+        <style>
+            /* Table style */
+            table {
+                border-collapse: collapse;
+                margin: auto;
+                width: 100%;
+                font-size: 1.2em;
+                min-width: 1000px;
+                border-radius: 5px 5px 0 0;
+                overflow: hidden;
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+            }
+            table thead tr {
+                background-color: #c3cac2;
+                color: #111010;
+                text-align: left;
+            }
+            table th,
+            table td {
+                padding: 12px 15px;
+            }
+            table tbody tr {
+                border-bottom: 1px solid #dddddd;
+            }
+            table tbody tr:nth-of-type(even) {
+                background-color: #f3f3f3;
+            }
+            table tbody tr:last-of-type {
+                border-bottom: 2px solid #27db3f;
+            }
+            .price {
+                color: #27db3f;
+            }
+            .delete-icon {
+                display: inline-block;
+                width: 20px;
+                height: 20px;
+                background-image: url('https://assets.mockflow.com/app/wireframepro/svg/default/trash.svg');
+                background-size: cover;
+                cursor: pointer;
+            }
+            a {
+                text-decoration: None;
+                color: #27db3f;
+            }
+        </style>
+</head>
+
+<body>
+    <script type="module" src="../static/scripts/header.js"></script>
+
+    <my-header></my-header>
+    
+    <section class="main2">
+        <h2>Services</h2>
+        <input type="text" placeholder="Search..." id="search-query-s">
+        <a href="http://127.0.0.1:5000/create_service">
+            <button class="btn">Create</button>
+        </a>
+    </section>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for service in services %}
+            <tr>
+                <td>{{ service.id }}</td>
+                <td><a href="/edit_service/{{ service.id }}">{{ service.name }}</a></td>
+                <td >{{ service.description }}</td>
+                <td class="price">{{ service.price }}</td>
+                <td><a class="delete-icon" href="#"><i class="fa fa-trash"></i></a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <script type="text/javascript" src="../static/scripts/search_services.js"></script>
+    <script type="text/javascript" src="../static/scripts/delete_service.js"></script>
+</html>
