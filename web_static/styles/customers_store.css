@@ -15,7 +15,7 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    height: 10%;
+    height: 11%;
     align-items: flex-start;
     display: flex;
     box-shadow:  2px 2px 10px #9c9a9a;
@@ -50,7 +50,7 @@ h2 {
 }
 
 .main2 {
-    background-color: rgb(242, 242, 284);
+    background-color: hsl(255, 254, 253);
     height: 15vh;
     width: 98%;
     display: flex;
@@ -64,7 +64,7 @@ h2 {
 .card {
     width: 30%;
     height: 15rem;
-    background-color: rgb(252, 252, 252);
+    background-color: hsl(255, 254, 253);
     border-radius: 2px;
     overflow: hidden;
     position: relative;
@@ -77,7 +77,7 @@ h2 {
     box-shadow:  2px 2px 10px #c2bfbf;
 }
 .left-side-img3 {
-    height: 45px;
+    height: 95px;
     width: 95px;
     left: 0%;
     align-items: center;
@@ -201,6 +201,10 @@ h2 {
 
 .btn:hover {
     background-color: hsl(152, 10%, 74%);
+}
+
+footer {
+	text-align: center;
 }
 
 input[type="text"] {
