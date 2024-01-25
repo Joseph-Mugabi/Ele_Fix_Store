@@ -6,7 +6,7 @@ from models.base_model import BaseModel, Base
 from sqlalchemy import Column, String, Integer, ForeignKey, Text, text
 from os import getenv
 from sqlalchemy.orm import relationship
-from models.customers import customer_item 
+#from models.customers import customer_item 
 
 
 class Item(BaseModel, Base):
@@ -19,4 +19,4 @@ class Item(BaseModel, Base):
 
         procurements = relationship("Procurement", backref="item_procurements")
         #customers = relationship('Customer', back_populates='items')
-        customer = relationship("Customer", secondary=customer_item, back_populates="items")
+        #customer = relationship("Customer", secondary=customer_item, back_populates="items")

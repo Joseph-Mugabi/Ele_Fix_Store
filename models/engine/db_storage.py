@@ -6,7 +6,7 @@ Contains the class DBStorage
 import models
 from models.base_model import BaseModel, Base
 from models.users import User
-from models.customers import Customer  , customer_item
+from models.customers import Customer  #customer_item
 from models.items import Item
 from os import getenv
 from flask import Flask
@@ -29,7 +29,7 @@ classes = {"User": User, "Item": Item, "Customer": Customer,
            "Described_item": Described_item, "Invoice": Invoice,
            "Invoiced_service": Invoiced_service, "Message": Message,
            "Payment": Payment, "Procurement": Procurement,
-           "Service": Service, "customer_item": customer_item}
+           "Service": Service} #"customer_item": customer_item}
 
 
 class DB_Storage:

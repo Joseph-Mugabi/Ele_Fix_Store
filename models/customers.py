@@ -10,19 +10,19 @@ import uuid
 
 
 # define customer item table
-#metadata = MetaData()
+# metadata = MetaData()
 """
 if models.storage_t == "db":
     customer_item = Table("customers_items", Base.metadata,
                         Column("customer_id", String(60), ForeignKey("customers.id")),
                         Column("item_id", String(60), ForeignKey("items.id")))
 """
-customer_item = Table(
-    "customers_items",
-    Base.metadata,
-    Column("customer_id", String(60), ForeignKey("customers.id")),
-    Column("item_id", String(60), ForeignKey("items.id"))
-)
+#customer_item = Table(
+#    "customers_items",
+#    Base.MetaData(),
+#    Column("customer_id", String(60), ForeignKey("customers.id")),
+#    Column("item_id", String(60), ForeignKey("items.id"))
+#)
 
 
 # if models.storage_t == "db":
@@ -37,7 +37,7 @@ class Customer(BaseModel, Base):
     contact = Column(String(60), nullable=False)
     payments = relationship("Payment", backref="customer",
                             cascade="all, delete")
-    items = relationship("Item", secondary="customers_items", backref="customers", viewonly=False)
+    #items = relationship("Item", secondary="customers_items", backref="customers", viewonly=False)
     #items = relationship("Item", secondary="customers_items",
     #                     backref="customer_items", viewonly=False)
     descriptions = relationship("Description", back_populates="customer",
