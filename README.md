@@ -1,4 +1,4 @@
-![The logo](https://github.com/Joseph-Mugabi/Ele_Fix_Store/blob/master/web_flask/static/images/logooo.PNG?raw=true)
+![](https://github.com/Joseph-Mugabi/Ele_Fix_Store/blob/master/web_flask/static/images/logooo.PNG?raw=true)
 
 * **The primary role of the Electronic Emporium E-Shop project is to serve as an online platform 
 for the retail of electronics and electrical products. The project aims to provide users 
