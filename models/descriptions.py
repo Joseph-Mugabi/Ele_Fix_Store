@@ -12,6 +12,6 @@ class Description(BaseModel, Base):
     """Class implements description"""
     __tablename__ = "descriptions"
     customer_id = Column(String(60), ForeignKey("customers.id"))
-    described_drugs = relationship("Described_item")
+    described_items = relationship("Described_item")
     customer = relationship("Customer", back_populates="descriptions",
                             overlaps="descriptions")

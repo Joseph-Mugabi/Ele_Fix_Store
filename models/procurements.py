@@ -14,7 +14,7 @@ class Procurement(BaseModel, Base):
         __tablename__ = "procurements"
         vendor_name = Column(String(128), nullable=False)
         procurement_id = Column(String(60), nullable=False)
-        drug_id = Column(String(60), ForeignKey("items.id"), nullable=False)
+        item_id = Column(String(60), ForeignKey("items.id"), nullable=False)
         name = Column(String(128), nullable=False)
         quantity = Column(Integer, nullable=False)
         price = Column(Integer, nullable=False)

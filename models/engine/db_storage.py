@@ -59,12 +59,16 @@ class DB_Storage:
             if cls is None or cls is classes[clss] or cls is clss:
                 objs = self.__session.query(classes[clss]).all()
                 for obj in objs:
-                    key = obj.__class__.__name__ + '.' + obj.id
+                    key = obj.__class__.__name__ + '.' + str(obj.id)
                     new_dict[key] = obj
         return (new_dict)
 
     def create(self, obj):
         """add the object to the current database session"""
+        self.__session.add(obj)
+        self.__session.commit()
+
+    def new(self, obj):
         self.__session.add(obj)
 
     def save(self):
@@ -137,10 +141,10 @@ class DB_Storage:
         results = self.__session.query(classes[cls]).filter(classes[cls].name.ilike(f'%{query}')).all()
         return results
 
-    def search_one(self, cls, **kwargs):
-        """search 4 1 item based on string"""
+    """def search_one(self, cls, **kwargs):
+        search 4 1 item based on string
         results = self.__session.query(classes[cls]).filter_by(**kwargs).first()
-        return results
+        return results"""
 
     def rollback(self):
         """rolling back"""

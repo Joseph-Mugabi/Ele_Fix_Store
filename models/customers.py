@@ -11,12 +11,12 @@ import uuid
 
 # define customer item table
 # metadata = MetaData()
-"""
+
 if models.storage_t == "db":
     customer_item = Table("customers_items", Base.metadata,
                         Column("customer_id", String(60), ForeignKey("customers.id")),
                         Column("item_id", String(60), ForeignKey("items.id")))
-"""
+
 #customer_item = Table(
 #    "customers_items",
 #    Base.MetaData(),

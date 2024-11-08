@@ -41,6 +41,11 @@ class FileStorage:
             key = obj.__class__.__name__ + "." + obj.id
             self.__objects[key] = obj
 
+    def new(self, obj):
+        if obj is not None:
+            key = obj.__class__.__name__ + "." + obj.id
+            self.__objects[key] = obj
+
     def save(self):
         """serializes __objects to the JSON file (path: __file_path)"""
         json_objects = {}
@@ -121,3 +126,16 @@ class FileStorage:
             if isinstanace(item, Item) and item.name == item_name:
                 return item
         return None
+
+    def search_one(self, cls, attribute_name, attribute_value):
+        """Search for the first object of a specific class with a matching attribute value."""
+        if cls not in classes.values():
+            return None
+
+        all_cls = self.all(cls)
+        for obj in all_cls.values():
+            if hasattr(obj, attribute_name) and getattr(obj, attribute_name) == attribute_value:
+                return obj
+
+        return None
+    

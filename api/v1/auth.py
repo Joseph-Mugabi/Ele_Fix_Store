@@ -12,7 +12,9 @@ from uuid import uuid4
 
 
 def hash_pwd(pswd: str) -> str:
-    "Method hashes password"
+    """Method hashes password"""
+    if pswd is None:
+        raise ValueError("Password cannot be None")
     return bcrypt.hashpw(pswd.encode(), bcrypt.gensalt())
 
 def generate_uuid() -> str:
@@ -25,7 +27,8 @@ class Auth:
     def register_user(self, name: str, gender: str, email: str, password: str,
                       contact: str=None, role: str=None, age: int=None) -> User:
     
-        user = storage.search_one("User", email=email)
+        user = storage.search_one("User", "email", email)
+        #user = db.session.query(User).filter_by(email=email).first()
         if user is None:
             password = hash_pwd(password)
             user = User(name=name, age=age, gender=gender, email=email, password=password,
@@ -40,7 +43,7 @@ class Auth:
         """check if user exists"""
         user = None
         try:
-            user + storage.search_one("User", email=email)
+            user = storage.search_one("User", "email", email)
         except NoResultFound:
             pass
 

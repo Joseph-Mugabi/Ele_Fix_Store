@@ -13,7 +13,7 @@ class Item(BaseModel, Base):
     """ representation of item clss"""
     if models.storage_t == "db":
         __tablename__ = 'items'
-        name = Column(String(128),  nullable=False)
+        name = Column(String(128), nullable=False)
         quantity = Column(Integer, nullable=False, default=0)
         price = Column(Integer, nullable=True)
 

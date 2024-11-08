@@ -33,6 +33,7 @@ classes = {"User": User, "Item": Item, "Customer": Customer,
 class DSEConsole(cmd.Cmd):
     """ DataStorageEngine console class"""
     prompt = Style.BRIGHT + Fore.YELLOW + "DataStorageEngine_EleFixStore:~ " + Style.RESET_ALL
+    classes = classes
 
     def do_EOF(self, arg):
         """Exits console"""
